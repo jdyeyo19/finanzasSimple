@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const APILogin= async(email, password) => {
-    const baseurl = "http://127.0.0.1:8000/api/financial/token"
+    const baseurl = "https://finanzassimpleapi.onrender.com/api/financial/token"
     try {
         const response = await axios.post(baseurl,{
             username: email,
@@ -16,7 +16,7 @@ export const APILogin= async(email, password) => {
     }
 }
 export const newUser= async(data) => {
-    const baseurl = "http://127.0.0.1:8000/api/financial/auth/register"
+    const baseurl = "https://finanzassimpleapi.onrender.com/api/financial/auth/register"
     try {
         const response = await axios.post(baseurl,{
             first_name: data.firstName,
