@@ -4,7 +4,7 @@ import { getAccessToken, getRefreshToken, setTokens, clearTokens } from "../../s
 
 //instanci de axios
 export const axiosInstance = axios.create({
-    baseURL: "http://127.0.0.1:8000/api/financial",
+    baseURL: "https://finanzassimpleapi.onrender.com/api/financial",
 }
 )
 //Request interceptor
@@ -46,7 +46,7 @@ axiosInstance.interceptors.response.use(
                 const refresh = getRefreshToken();
 
                 const response = await axios.post(
-                    "http://127.0.0.1:8000/api/financial/token/refresh",
+                    "https://finanzassimpleapi.onrender.com/api/financial/token/refresh",
                     {
                         refresh,
                     }
