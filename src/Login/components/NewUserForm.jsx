@@ -107,7 +107,7 @@ function NewUserForm ({isRegistered, setIsRegister}) {
             confirmPassword: "",
         })
         }else if(response.status >= 400 && response.status < 500){
-            alert("Email ya registrado, usa uno diferente")
+            alert("Error en los datos, revisa e intenta nuevamente")
         }else{
             alert("Fallas en el sistema por favor intenta mas tarde")
         }
@@ -268,7 +268,7 @@ function NewUserForm ({isRegistered, setIsRegister}) {
                 {/* submit Button */}
                 <button
                 type="submit"
-                disabled={!isFormValid}
+                disabled={!isFormValid || registering}
                 className={`w-full py-3 rounded-lg font-semibold transition-all
                     ${
                         isFormValid
