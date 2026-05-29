@@ -14,8 +14,7 @@ export const FinanzasContext = ({children})=>{
                         withCredentials: true,
                     }
                 );
-        if(response){
-            setAccessT(response.data.access)
+        if(response.data.access){
             setAccessToken(response.data.access)
             return response.data.access
         }else{
@@ -30,6 +29,7 @@ export const FinanzasContext = ({children})=>{
 
     const logout = () => {
         setAccessT(null);
+        setAccessToken(null)
     }
 
     return(
