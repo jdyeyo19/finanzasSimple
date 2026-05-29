@@ -88,5 +88,5 @@ export const endSession =  async()=>{
     const response = await axiosInstance.post(
         "/logout/"
     );
-    return response
+    return response.data;
 }

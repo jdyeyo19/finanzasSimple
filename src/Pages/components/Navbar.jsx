@@ -8,12 +8,11 @@ function Navbar({setIsMobileMenuOpen, isMobileMenuOpen, userData, logout, onOpen
     const [showConfirm, setShowConfirm] = useState(false);
 
     async function confirmLogout() {
+        setShowConfirm(false);
         const response = await endSession();
-        console.log(response);
         console.log(response.message);
         clearTokens();
         logout();
-        setShowConfirm(false);
     }
 
     return(
