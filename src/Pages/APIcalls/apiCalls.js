@@ -83,3 +83,10 @@ export const changePassword = async (passwordData) => {
 
     return response.data;
 };
+//cerrar sesion
+export const endSession =  async()=>{
+    const response = await axiosInstance.post(
+        "/logout/"
+    );
+    return response
+}

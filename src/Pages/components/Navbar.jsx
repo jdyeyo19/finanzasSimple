@@ -2,11 +2,15 @@ import { Plus, TrendingUp, TrendingDown, Wallet, Menu, X, LogOut } from 'lucide-
 import { clearTokens } from '../../services/authservice';
 import { useState } from 'react';
 import '../CSS/components.css'
+import { endSession } from '../APIcalls/apiCalls'
 
 function Navbar({setIsMobileMenuOpen, isMobileMenuOpen, userData, logout, onOpen}) {
     const [showConfirm, setShowConfirm] = useState(false);
 
-    function confirmLogout() {
+    async function confirmLogout() {
+        const response = await endSession();
+        console.log(response);
+        console.log(response.message);
         clearTokens();
         logout();
         setShowConfirm(false);
