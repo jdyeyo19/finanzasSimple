@@ -7,7 +7,7 @@ const AppContext = createContext();
 
 export const FinanzasContext = ({children})=>{
     const [accessT, setAccessT] = useState(null);
-    useEffect(() => {
+    useEffect(async() => {
         const response = await axios.post(
             "https://finanzassimpleapi.onrender.com/api/financial/token/refresh/",
             {},
