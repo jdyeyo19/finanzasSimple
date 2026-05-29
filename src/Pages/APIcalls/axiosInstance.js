@@ -1,8 +1,8 @@
 import axios from "axios";
-import { getAccessToken, getRefreshToken, setTokens, clearTokens } from "../../services/authservice";
+import { getAccessToken, setAccessToken, clearTokens } from "../../services/authservice";
 
 
-//instanci de axios
+//instancia de axios
 export const axiosInstance = axios.create({
     baseURL: "https://finanzassimpleapi.onrender.com/api/financial",
     withCredentials: true,
@@ -42,7 +42,6 @@ axiosInstance.interceptors.response.use(
             originalRequest._retry = true;
 
             try {
-                const refresh = getRefreshToken();
 
                 const response = await axios.post(
                     "https://finanzassimpleapi.onrender.com/api/financial/token/refresh",
@@ -54,7 +53,7 @@ axiosInstance.interceptors.response.use(
 
                 const newAccess = response.data.access;
 
-                setTokens(newAccess, refresh);
+                setAccessToken(newAccess);
 
                 originalRequest.headers.Authorization =
                     `Bearer ${newAccess}`;
