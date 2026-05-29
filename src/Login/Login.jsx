@@ -4,20 +4,30 @@ import RegisterForm from './components/RegisterForm'
 import NewUserForm from './components/NewUserForm'
 import { useFinanzas } from '../AppContext/FinanzasContext'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { setAccessToken } from '../services/authservice'
 
 
 function Login(){
 
-    const {accessT} = useFinanzas();
+    const {accessT, setAccessT} = useFinanzas();
     const navigate = useNavigate();
     const [isRegistered, setIsRegister] = useState(true)
-
-    useEffect(() => {
-      if (accessT){
-             navigate("/home")
-             return
-        }
-    }, [accessT])
+    useEffect(async() => {
+            const response = await axios.post(
+                "https://finanzassimpleapi.onrender.com/api/financial/token",
+                {},
+                {
+                    withCredentials: true,
+                }
+            );
+            if(response.data.access){
+                console.log(response)
+                setAccessToken(response.data.access)
+                setAccessT(response.data.access)
+                navigate("/home")
+            }
+        }, [])
 
 
     return(
