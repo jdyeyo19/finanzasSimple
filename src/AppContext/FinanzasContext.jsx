@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { setAccessToken } from "../services/authservice";
+import axios from "axios";
 //1. crear contexto
 const AppContext = createContext();
 
