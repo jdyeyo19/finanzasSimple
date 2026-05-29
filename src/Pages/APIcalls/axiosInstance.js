@@ -5,8 +5,8 @@ import { getAccessToken, getRefreshToken, setTokens, clearTokens } from "../../s
 //instanci de axios
 export const axiosInstance = axios.create({
     baseURL: "https://finanzassimpleapi.onrender.com/api/financial",
-}
-)
+    withCredentials: true,
+});
 //Request interceptor
 axiosInstance.interceptors.request.use(
 
@@ -42,13 +42,13 @@ axiosInstance.interceptors.response.use(
             originalRequest._retry = true;
 
             try {
-
                 const refresh = getRefreshToken();
 
                 const response = await axios.post(
                     "https://finanzassimpleapi.onrender.com/api/financial/token/refresh",
+                    {},
                     {
-                        refresh,
+                        withCredentials: true,
                     }
                 );
 
