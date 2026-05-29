@@ -23,9 +23,6 @@ function Login() {
       );
 
       if (response.data.access) {
-        console.log(typeof setAccessToken);
-        console.log(typeof setAccessT);
-
         setAccessToken(response.data.access);
         setAccessT(response.data.access);
 
