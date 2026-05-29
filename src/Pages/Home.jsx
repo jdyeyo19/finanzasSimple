@@ -11,10 +11,12 @@ import TransactionList from "./components/TransactionList";
 import Profile from "./components/Profile";
 import AddTransactionModal from "./components/AddTransactionModal";
 import { Dashboard } from "./components/Dashboard";
+import {getAccessToken} from "../services/authservice"
 
 
 function Home (){
-    const {accessT, logout} = useFinanzas();
+    const { logout } = useFinanzas();
+    const accessT = getAccessToken();
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeView, setActiveView] = useState('dashboard');
