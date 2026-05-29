@@ -14,7 +14,7 @@ import { Dashboard } from "./components/Dashboard";
 
 
 function Home (){
-    const {accessT, refreshT, logout} = useFinanzas();
+    const {accessT, logout} = useFinanzas();
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeView, setActiveView] = useState('dashboard');
