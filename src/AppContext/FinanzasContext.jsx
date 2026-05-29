@@ -6,7 +6,22 @@ const AppContext = createContext();
 //2. Crear al provedor
 
 export const FinanzasContext = ({children})=>{
-    const [accessT, setAccessT] = useState("x");
+    const [accessT, setAccessT] = useState(async()=>{
+        const response = await axios.post(
+                    "https://finanzassimpleapi.onrender.com/api/financial/token/refresh/",
+                    {},
+                    {
+                        withCredentials: true,
+                    }
+                );
+        if(response){
+            setAccessT(response.data.access)
+            setAccessToken(response.data.access)
+            return response.data.access
+        }else{
+         return null   
+        }
+    });
 
     const login = (access) => {
         setAccessToken(access);
