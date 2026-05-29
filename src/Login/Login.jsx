@@ -15,7 +15,7 @@ function Login(){
     const [isRegistered, setIsRegister] = useState(true)
     useEffect(async() => {
             const response = await axios.post(
-                "https://finanzassimpleapi.onrender.com/api/financial/token",
+                "https://finanzassimpleapi.onrender.com/api/financial/token/refresh",
                 {},
                 {
                     withCredentials: true,
