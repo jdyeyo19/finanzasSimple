@@ -27,11 +27,11 @@ export const newUser= async(data) => {
             last_name: data.lastName,
             email: data.email,
             password: data.password
-        },
-        {
-            withCredentials: true
-        }
-    );
+            },
+            {
+                withCredentials: true
+            }
+        );
 
         if (response.status == 201){
             return response;
