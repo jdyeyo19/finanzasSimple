@@ -1,0 +1,38 @@
+
+.ad-section {
+  width: 100%;
+  margin: 24px auto;
+  padding: 16px 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ad-label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ad-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.ad-banner {
+  width: 728px;
+  height: 90px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+/* Adaptación para móviles */
+@media (max-width: 600px) {
+  .ad-container {
+    justify-content: flex-start;
+  }
+}

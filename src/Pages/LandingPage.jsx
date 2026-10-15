@@ -1,6 +1,6 @@
 import { Wallet, TrendingUp, BarChart3, Shield, Smartphone, Zap, ArrowRight } from 'lucide-react';
 import {useNavigate, Link} from 'react-router-dom'
-
+import { AdsterraBanner } from '../Ads/AdsterraBanner'
 
 export default function LandingPage() {
 
@@ -150,6 +150,8 @@ export default function LandingPage() {
           </button>
         </div>
       </section>
+      
+      <AdsterraBanner />
 
       {/* Stats Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
