@@ -1,6 +1,6 @@
 import { Wallet, TrendingUp, BarChart3, Shield, Smartphone, Zap, ArrowRight } from 'lucide-react';
 import {useNavigate, Link} from 'react-router-dom'
-import { AdsterraBanner } from '../Ads/AdsterraBanner'
+import AdsterraBanner from '../Ads/AdsterraBanner'
 
 export default function LandingPage() {
 
